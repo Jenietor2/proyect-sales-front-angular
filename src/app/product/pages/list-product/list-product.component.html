@@ -1,5 +1,5 @@
 <h2>Productos</h2>
-<hr>
+<hr />
 <div class="row" *ngIf="products.length > 0">
     <div class="col">
         <table class="table table-hover">
@@ -13,12 +13,18 @@
             </thead>
             <tbody>
                 <tr *ngFor="let product of products; let i = index">
-                    <td>{{ i+1}}</td>
-                    <td>{{product.name}}</td>
-                    <td>{{product.unitValue | currency}}</td>
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.unitValue | currency }}</td>
                     <td>
-                        <a [routerLink]="['/edit-product',product.id]">Editar</a>&nbsp;&nbsp;
-                        <a [routerLink]="['/delete-product',product.id]">Borrar</a>
+                        <button class="btn btn-info" [routerLink]="['/edit-product', product.id]">
+              Editar
+            </button>&nbsp;
+                        <button class="btn btn-danger" (click)="deleteProduct(product.id)">
+              Eliminar
+            </button>
+                        <!--<a [routerLink]="['/edit-product',product.id]">Editar</a>&nbsp;&nbsp;
+                        <a (click)="deleteProduct(product.id)">Borrar</a>-->
                     </td>
                 </tr>
             </tbody>

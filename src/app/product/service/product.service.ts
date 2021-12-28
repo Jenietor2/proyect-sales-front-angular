@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from '../interfaces/product.interface';
+import { ProductModel } from '../model/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,19 +11,22 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.urlBase);
+  getProducts(): Observable<ProductModel[]> {
+    return this.http.get<ProductModel[]>(this.urlBase);
   }
 
-  getProductById(id:string) : Observable<Product>{
-    return this.http.get<Product>(`${this.urlBase}/${id}`);
+  getProductById(id:string) : Observable<ProductModel>{
+    return this.http.get<ProductModel>(`${this.urlBase}/${id}`);
   }
 
-  createProduct(product:Product):Observable<Product>{
-    return this.http.post<Product>(this.urlBase, product);
+  createProduct(product:ProductModel):Observable<ProductModel>{
+    return this.http.post<ProductModel>(this.urlBase, product);
   }
 
-  updateProduct(product:Product):Observable<Product>{
-    return this.http.put<Product>(this.urlBase, product);
+  updateProduct(product:ProductModel):Observable<ProductModel>{
+    return this.http.put<ProductModel>(this.urlBase, product);
+  }
+  deleteProduct(id:string) : Observable<ProductModel>{
+    return this.http.delete<ProductModel>(`${this.urlBase}/${id}`);
   }
 }

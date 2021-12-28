@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { Product } from '../../interfaces/product.interface';
+import { ProductModel } from '../../model/product.model';
 import { ProductService } from '../../service/product.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ProductService } from '../../service/product.service';
   styles: [],
 })
 export class EditProductComponent implements OnInit {
-  product: Product = {
+  product: ProductModel = {
     id: '',
     name: '',
     unitValue: 0,

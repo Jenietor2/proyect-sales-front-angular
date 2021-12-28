@@ -1,1 +1,45 @@
-<p>add-customer works!</p>
+<h2>Crear Cliente</h2>
+<hr />
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="createOrUpdate(customerForm)" #customerForm="ngForm">
+            <!--field cedula-customer-->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Cedula</label>
+                <div class="col-sm-9">
+                    <input type="text" [(ngModel)]="customer.cedula" name="cedula" class="form-control" placeholder="Número de cedula" required minlength="3" />
+                </div>
+            </div>
+            <input type="hidden" [(ngModel)]="customer.id" name="id" />
+            <!--field name-customer-->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Nombre</label>
+                <div class="col-sm-9">
+                    <input type="text" [(ngModel)]="customer.name" name="name" class="form-control" placeholder="Nombre" required minlength="3" />
+                </div>
+            </div>
+
+            <!--field lastName-customer-->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Apellido</label>
+                <div class="col-sm-9">
+                    <input type="text" [(ngModel)]="customer.lastName" name="lastName" class="form-control" placeholder="Apellido" required minlength="3" />
+                </div>
+            </div>
+
+            <!--field phone-customer-->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Teléfono</label>
+                <div class="col-sm-9">
+                    <input type="text" [(ngModel)]="customer.phone" name="phone" class="form-control" placeholder="Teléfono" required minlength="3" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary float-end">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

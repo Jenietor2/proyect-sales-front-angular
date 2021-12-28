@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ProductService } from '../../service/product.service';
-import { Product } from '../../interfaces/product.interface';
+import { ProductModel } from '../../model/product.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +18,7 @@ export class AddProductComponent implements OnInit {
 
   create(productForm: NgForm) {
     if (productForm.valid) {
-      let product: Product = {
+      let product: ProductModel = {
         name: productForm.form.value.producto,
         unitValue: productForm.form.value.unitValue,
       };
@@ -30,8 +30,4 @@ export class AddProductComponent implements OnInit {
       console.log('Formulario invalido');
     }
   }
-
-  /*validateName():boolean{
-  return this.productForm?.controls.producto.invalid &&  this.productForm?.controls.producto?.touched
-}*/
 }

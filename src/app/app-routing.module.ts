@@ -5,10 +5,10 @@ import { AddProductComponent } from './product/pages/add-product/add-product.com
 import { ListCustomerComponent } from './customer/pages/list-customer/list-customer.component';
 import { AddCustomerComponent } from './customer/pages/add-customer/add-customer.component';
 import { AddSaleComponent } from './sale/pages/add-sale/add-sale.component';
+import { ListSaleComponent } from './sale/pages/list-sale/list-sale.component';
 import { EditProductComponent } from './product/pages/edit-product/edit-product.component';
-import { EditCustomerComponent } from './customer/pages/edit-customer/edit-customer.component';
 import { DeleteCustomerComponent } from './customer/pages/delete-customer/delete-customer.component';
-import { DeleteProductComponent } from './product/pages/delete-product/delete-product.component';
+
 
 const routes: Routes = [
   {
@@ -25,28 +25,24 @@ const routes: Routes = [
     component: EditProductComponent,
   },
   {
-    path: 'delete-product/:id',
-    component: DeleteProductComponent
-  },
-  {
     path: 'list-customer',
     component: ListCustomerComponent,
   },
   {
-    path: 'create-customer',
+    path: 'create-customer/:id',
     component: AddCustomerComponent,
-  },
-  {
-    path: 'edit-customer',
-    component: EditCustomerComponent,
   },
   {
     path: 'delete-customer/:id',
     component: DeleteCustomerComponent,
   },
   {
-    path: 'create-sale',
+    path: 'create-sale/:id',
     component: AddSaleComponent,
+  },
+  {
+    path: 'list-sale/:id',
+    component: ListSaleComponent,
   },
   {
     path:'**',

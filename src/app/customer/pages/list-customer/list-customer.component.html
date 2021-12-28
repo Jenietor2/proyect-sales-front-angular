@@ -1,1 +1,41 @@
-<p>list-customer works!</p>
+<h2>Clientes</h2>
+<hr />
+<div class="row" *ngIf="customers.length > 0">
+    <div class="col">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Cedula</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of customers">
+                    <td>{{ customer.cedula }}</td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.lastName }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>
+                        <button class="btn btn-info" [routerLink]="['/create-customer', customer.id]">
+              Editar</button
+            >&nbsp;
+            <button
+              class="btn btn-danger"
+              (click)="deleteCustomer(customer.id)"
+            >
+              Eliminar
+            </button> &nbsp;
+                        <button class="btn btn-danger" [routerLink]="['/create-sale', customer.id]">
+              Comprar
+            </button>
+                        <!--<a [routerLink]="['/edit-product',product.id]">Editar</a>&nbsp;&nbsp;
+                        <a (click)="deleteProduct(product.id)">Borrar</a>-->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

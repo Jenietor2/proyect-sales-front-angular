@@ -1,1 +1,26 @@
-<p>list-sale works!</p>
+<h2>Facturas</h2>
+<hr />
+<div class="row">
+    <div class=" col ">
+        <table class="table table-hover ">
+            <thead>
+                <tr>
+                    <th>Cantidad X Producto</th>
+                    <th>Precio unitario</th>
+                    <th>Total X Linea</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let line of sale.SaleLines">
+
+                    <td>{{ line.Quantity }}</td>
+                    <td>{{ line.UnitValue | currency }}</td>
+                    <td>{{ line.TotalValueForLine | currency }}</td>
+                    <!--<td>{{sale.TotalValue}}
+                    </td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
